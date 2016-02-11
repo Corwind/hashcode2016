@@ -7,6 +7,8 @@ Written by dore_g
 import sys
 from pprint import pprint as print
 
+from distance import get_distance
+
 class Infos:
     def __init__(self, turns, warehouses, drones, orders, wgs):
         self.warehouses = warehouses
@@ -25,6 +27,12 @@ class Warehouse:
         self.stock = stock
         self.line = line
         self.col = col
+
+    def update_stock(obj, quantity):
+        self.stock[obj] -= quantity
+
+    def check_obj(obj, quantity):
+        return self.stock[obj] >= quantity
 
 class Order:
     def __init__(self, pdts, line, col):
@@ -49,6 +57,9 @@ class Drone:
 
     def check_turns(n):
         return self.turns >= n
+
+    def go_to_warehouse(w):
+        self.turns -= get_distance(self, w)
 
 def parse(f):
     orders = []
