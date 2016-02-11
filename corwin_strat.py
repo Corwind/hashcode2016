@@ -18,6 +18,9 @@ def main():
             w = next_warehouses(drone, order, infos.warehouses)
             turns = get_distance(drone, w) +get_distance(w, order)
             if drone.check_turns(turns):
+                pds = []
+                for i in range(len(order.products)):
+                    for j in range()
 
 
 if __name__ == "__main__":

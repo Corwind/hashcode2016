@@ -84,19 +84,19 @@ def parse(f):
     wh = []
     drones = []
     with open(f, 'r') as fi:
-        lines, cols, t, dr, p = map(int, fi.readline().split())
+        lines, cols, t, dr, p = list(map(int, fi.readline().split()))
         pt = int(fi.readline())
-        pw = map(int, fi.readline().split())
+        pw = list(map(int, fi.readline().split()))
         nw = int(fi.readline())
         for i in range(nw):
-            line, col = map(int, fi.readline().split())
-            stock = map(int, fi.readline().split())
+            line, col = list(map(int, fi.readline().split()))
+            stock = list(map(int, fi.readline().split()))
             wh.append(Warehouse(stock, line, col))
         o = int(fi.readline())
         for i in range(o):
-            line, col = map(int, fi.readline().split())
+            line, col = list(map(int, fi.readline().split()))
             nb = int(fi.readline())
-            prods = map(int, fi.readline().split())
+            prods = list(map(int, fi.readline().split()))
             orders.append(Order(prods, line, col))
         for i in range(dr):
             drones.append(Drone(p, wh[0].line, wh[0].col))
