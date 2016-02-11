@@ -24,16 +24,19 @@ class Infos:
             {}".format(self.warehouses, self.turns, self.weights, self.drones,
                     self.orders)
 
+    def del_order(order):
+        self.orders.pop(order)
+
 class Warehouse:
     def __init__(self, stock, line, col):
         self.stock = stock
         self.line = line
         self.col = col
 
-    def update_stock(obj, quantity):
+    def update_stock(self, obj, quantity):
         self.stock[obj] -= quantity
 
-    def check_obj(obj, quantity):
+    def check_obj(self, obj, quantity):
         return self.stock[obj] >= quantity
 
 class Order:
@@ -54,13 +57,16 @@ class Drone:
         self.line = line
         self.col = col
 
-    def use_turns(n):
+    def empty_products(self):
+        self.products = []
+
+    def use_turns(sefl, n):
         self.turns -= n
 
-    def check_turns(n):
+    def check_turns(self, n):
         return self.turns >= n
 
-    def go_to_warehouse(w):
+    def go_to_warehouse(self, w):
         self.turns -= get_distance(self, w)
 
 def parse(f):
