@@ -16,6 +16,8 @@ class Infos:
         self.weights = wgs
         self.drones = drones
         self.orders = orders
+        for i in drones:
+            i.turns = self.turns
 
     def __repr__(self):
         return "warehouses: {}\nturns: {}\nweights: {}\ndrones: {}\norders:\
