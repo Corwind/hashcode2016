@@ -1,18 +1,21 @@
 #!/usr/bin/python3
 import writer
 import sys
+import parse
 
 def main():
+  s, f = sys.argv
 
   #begin solution 1
-  writer.res.append([0, ""])#nb_commands, commands
+  infos = parse.parse(f)
+  writer.res.append([0, 0, ""])#score, nb_commands, commands
   #test solution here, using writing.py
   writer.load(0, 0, 0, 0)
-  writer.deliver(0, 0, 0, 0)
+  writer.deliver(infos, 0, 0, 0, 0)
   #end solution 1
 
   #begin solution 2
-  writer.res.append([0, ""])#nb_commands, commands
+  writer.res.append([0, 0, ""])#score, nb_commands, commands
   #test solution here, using writing.py
   writer.load(0, 0, 0, 0)
   writer.deliver(0, 0, 0, 0)
@@ -22,4 +25,5 @@ def main():
 
   writer.write(sys.argv[1])
 
-main()
+if __name__ == "__main__":
+  main()
