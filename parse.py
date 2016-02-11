@@ -15,6 +15,11 @@ class Infos:
         self.drones = drones
         self.orders = orders
 
+    def __repr__(self):
+        return "warehouses: {}\nturns: {}\nweights: {}\ndrones: {}\norders:\
+            {}".format(self.warehouses, self.turns, self.weights, self.drones,
+                    self.orders)
+
 class Warehouse:
     def __init__(self, stock, line, col):
         self.stock = stock
@@ -42,23 +47,23 @@ def parse(f):
     wh = []
     drones = []
     with open(f, 'r') as fi:
-        lines, cols, t, dr, p = map(int, fi.readline())
+        lines, cols, t, dr, p = map(int, fi.readline().split())
         pt = int(fi.readline())
-        pw = map(int, fi.readline())
+        pw = map(int, fi.readline().split())
         nw = int(fi.readline())
         for i in range(nw):
-            line, col = map(int, fi.readline())
-            stock = map(int, fi.readline())
+            line, col = map(int, fi.readline().split())
+            stock = map(int, fi.readline().split())
             wh.append(Warehouse(stock, line, col))
         o = int(fi.readline())
         for i in range(o):
-            line, col = map(int, fi.readline())
+            line, col = map(int, fi.readline().split())
             nb = int(fi.readline())
-            prods = map(int, fi.readline())
+            prods = map(int, fi.readline().split())
             orders.append(Order(prods, line, col))
         for i in range(dr):
-            drones.append(p, wh[0].line, wh[0].col)
-    return Infos(t, wh, drones, oerders, pw)
+            drones.append(Drone(p, wh[0].line, wh[0].col))
+    return Infos(t, wh, drones, orders, pw)
 
 
 if __name__ == "__main__":
