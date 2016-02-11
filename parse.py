@@ -39,9 +39,17 @@ class Order:
 
 class Drone:
     def __init__(self, weight, line, col):
+        self.turns = 0
         self.weight = weight
         self.line = line
         self.col = col
+
+    def use_turns(n):
+        self.turns -= n
+
+    def check_turns(n):
+        return self.turns >= n
+
 def parse(f):
     orders = []
     wh = []
