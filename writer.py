@@ -26,6 +26,6 @@ def wait(drone_number, nb_turns_to_wait):
 def write(name_input):
   with open(name_input.split('.')[0] + "_output.txt", 'w') as f_out:
     for score, nb, s in res:
-      print("score: {}, nb commands: {}")
+      print("score: {}, nb commands: {}".format(score, nb))
     best = min(res, key=lambda r: r[0])
     f_out.write(str(best[1]) + "\n" + best[2])

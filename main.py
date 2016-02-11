@@ -18,9 +18,9 @@ def main():
   writer.res.append([0, 0, ""])#score, nb_commands, commands
   #test solution here, using writing.py
   writer.load(0, 0, 0, 0)
-  writer.deliver(0, 0, 0, 0)
+  writer.deliver(infos, 0, 0, 0, 0)
   writer.load(0, 0, 0, 0)
-  writer.deliver(0, 0, 0, 0)
+  writer.deliver(infos, 0, 0, 0, 0)
   #end solution 2
 
   writer.write(sys.argv[1])
