@@ -24,9 +24,6 @@ class Infos:
             {}".format(self.warehouses, self.turns, self.weights, self.drones,
                     self.orders)
 
-    def del_order(order):
-        self.orders.pop(order)
-
 class Warehouse:
     def __init__(self, stock, line, col):
         self.stock = stock
@@ -50,6 +47,16 @@ class Order:
         self.line = line
         self.col = col
 
+    def deliver(self, pdts):
+        for p in range(len(pdts)):
+            self.products[p] -= pdts[p]
+
+    def empty(self):
+        for i in self.products:
+            if (i != 0):
+                return False
+        return True
+
 class Drone:
     def __init__(self, weight, line, col):
         self.turns = 0
@@ -59,6 +66,9 @@ class Drone:
 
     def empty_products(self):
         self.products = []
+
+    def load_products(products):
+        self.products = products
 
     def use_turns(sefl, n):
         self.turns -= n
